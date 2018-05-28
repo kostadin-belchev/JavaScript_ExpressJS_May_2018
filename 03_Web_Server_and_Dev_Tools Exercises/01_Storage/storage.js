@@ -71,7 +71,7 @@ function load () {
     let contents = fs.readFileSync('./storage.json', 'utf8');
     storageArray = JSON.parse(contents);
   } catch (error) {
-    throw new Error(error);
+    throw (error);
   }
 }
 

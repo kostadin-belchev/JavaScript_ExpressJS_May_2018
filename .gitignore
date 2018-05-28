@@ -5,3 +5,4 @@ jsconfig.json
 tasks.json
 launch.json
 
+/01_HTTP_and_Node/node_modules/*

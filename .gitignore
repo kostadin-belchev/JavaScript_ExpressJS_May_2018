@@ -1,0 +1,7 @@
+*.pptx
+package-lock.json
+/node_modules/*
+jsconfig.json
+tasks.json
+launch.json
+

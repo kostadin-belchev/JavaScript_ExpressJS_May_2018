@@ -1,0 +1,14 @@
+{
+  "name": "02_webserverexercise",
+  "version": "0.0.1",
+  "description": "Movie DB",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "movie"
+  ],
+  "author": "KHB",
+  "license": "MIT"
+}

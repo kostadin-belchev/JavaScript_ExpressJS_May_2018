@@ -1,8 +1,4 @@
 *.pptx
 package-lock.json
-*/node_modules/*
-jsconfig.json
-tasks.json
-launch.json
-/03_Web_Server_Exercises/02_WebServer/node_modules/*
-04_Persistance_Files_and_MongoDB/03. Persistence-Files-MongoDB-Lab.docx
+*/node_modules/
+*.dat

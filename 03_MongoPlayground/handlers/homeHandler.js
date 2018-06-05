@@ -23,6 +23,7 @@ module.exports = (req, res) => {
           .replace(`<div class='replaceMe'></div>`, dispalyTags)
         res.end(data)
       })
+      // res.end(data)
     })
   } else {
     return true

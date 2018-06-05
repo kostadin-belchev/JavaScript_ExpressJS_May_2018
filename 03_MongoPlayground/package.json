@@ -9,6 +9,7 @@
   "author": "KHB",
   "license": "MIT",
   "dependencies": {
+    "formidable": "1.2.1",
     "mongoose": "^5.1.4"
   }
 }

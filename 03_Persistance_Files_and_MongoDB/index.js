@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 let connectionString = 'mongodb://localhost:27017/pets'
 
-let penguinSchema = mongoose.Schema({
+let penguinSchema = new mongoose.Schema({
   name: { type: String, required: true },
   age: { type: Number, required: true },
   color: { type: String }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>head}}
+
+<body>
+
+  {{>menu}}
+
+  <h1>Here are your memes</h1>
+  <div class="container">
+    {{#each memes}}
+    <div class="meme">
+      <a href="/getDetails?id={{this._id}}">
+        <img class="memePoster" src="{{this.memePath}}">
+      </a>
+    </div>
+    {{/each}}
+  </div>
+</body>
+
+</html>

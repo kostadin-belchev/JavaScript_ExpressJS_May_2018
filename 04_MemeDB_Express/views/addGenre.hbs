@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{> head}}
+
+<body>
+    {{> navigation}}
+    <h1>Add New Genre</h1>
+    <div class="container">
+        <form action="/addGenre" enctype="multipart/form-data" method="POST">
+            <label for="genreTitle">Title</label>
+            <input type="text" id="genreTitle" name="genreTitle" placeholder="The title/name of the genre">
+
+            <input type="submit" value="Submit">
+
+        </form>
+    </div>
+    {{#if status}}
+        <div id="succssesBox"><h2 id="succssesMsg">Genre Added</h2></div>
+    {{else}}
+        <div id="errBox"><h2 id="errMsg">Please enter genre title/name</h2></div>
+    {{/if}}
+</body>
+
+</html>

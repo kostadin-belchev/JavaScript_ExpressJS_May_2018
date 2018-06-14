@@ -208,7 +208,7 @@ let searchForMeme = (req, res) => {
 
   if (selectedGenre !== 'all') {
     let demo = tags.find(x => {
-      return x.id == selectedGenre
+      return x.id === selectedGenre
     })
     let arrSelection = demo.memeArr
 
@@ -281,7 +281,7 @@ module.exports = (req, res) => {
     searchForMeme(req, res)
   } else if (req.pathname === '/addGenre' && req.method === 'GET') {
     createGenreView(req, res)
-  }else if (req.pathname === '/aaddGenre' && req.method === 'GET') {
+  } else if (req.pathname === '/aaddGenre' && req.method === 'GET') {
     console.log(req.querypath)
     createGenreView(req, res)
   } else {

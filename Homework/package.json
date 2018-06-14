@@ -1,0 +1,20 @@
+{
+  "name": "express-boilerplate",
+  "version": "1.0.0",
+  "description": "sample express app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tseko Tsolov",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-fileupload": "^0.4.0",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.11",
+    "mongoose": "^5.1.4",
+    "shortid": "^2.2.8"
+  }
+}

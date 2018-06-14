@@ -1,0 +1,160 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    link(href='../public/fonts/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+    link(href='../public/css/style.css', rel='stylesheet')
+    link(rel='icon', type='image/png', href='../public/img/icon.png')
+    title The Band Website
+  body
+    nav.navbar.navbar-expand-sm.fixed-top.navbar-dark.bg-dark
+      a.navbar-brand(href='#') The Band
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarNav.collapse.navbar-collapse.justify-content-end
+        ul.navbar-nav
+          li.nav-item
+            a.nav-link(href='#')
+              | Home 
+              span.sr-only
+          li.nav-item
+            a.nav-link(href='#') About
+          li.nav-item
+            a.nav-link(href='#') Upcoming Shows
+          li.nav-item
+            a.nav-link(href='#') Our Music
+    section.hero.text-center.flex-align
+      .container
+        h1.display-1  We are rock
+        .row.justify-content-center
+          .col-sm-8
+            p.lead
+              | Pounding the world like a battering ram. Forging the furnace for the final grand slam. Chopping away at the source soon the
+              | course will be done Leaving a trail of destruction that's second to none. Second to none
+            .btn.btn-custom.hvr-grow Listen to our music
+    section.about
+      .container-fluid
+        .row
+          .col-lg-6.about-image.flex-align
+            h2 About
+          .col-lg-6.flex-align
+            .wrapper-about-p
+              p
+                | Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem reiciendis consequatur pariatur rem quam itaque
+                | dolorem quaerat, aut ipsum velit.
+              p
+                | Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo non nostrum dolorum harum eligendi magni debitis
+                | tempore maiores numquam enim, ipsum minima quibusdam. Pariatur dolorem provident consequuntur illum velit voluptatum,
+                | maiores reprehenderit quam ipsum tenetur et corrupti doloremque. Voluptate, pariatur!
+              p
+                | Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum id repellendus eos, odio commodi molestias suscipit
+                | adipisci culpa non alias.
+      // end of container fluid
+      .container.absolute
+        .row
+          .col-sm-4
+            .card.border-0.bg-dark
+              img.card-img-top(src='../public/img/singer.jpg', alt='singer')
+              .card-body.text-center
+                h5.card-title Johny Singer
+                p.card-text Lead Singer
+          .col-sm-4
+            .card.border-0.bg-dark
+              img.card-img-top(src='../public/img/guitar.jpg', alt='guitar')
+              .card-body.text-center
+                h5.card-title Ricky Guitar
+                p.card-text Solo Guitar
+          .col-sm-4
+            .card.border-0.bg-dark
+              img.card-img-top(src='../public/img/drummer.jpg', alt='drummer')
+              .card-body.text-center
+                h5.card-title Sammy Drums
+                p.card-text Drum & base
+    .parallax
+    section.our-music
+      .container.text-center.music
+        h2 Our Music
+        .row.justify-content-center.no-gutters
+          .col-sm-3
+            img.img-fluid(src='../public/img/album-01.jpg ', alt='')
+          .col-sm-3
+            img.img-fluid(src='../public/img/album-02.jpg ', alt='')
+          .col-sm-3
+            img.img-fluid(src='../public/img/album-03.jpg ', alt='')
+        .row.justify-content-center.no-gutters
+          .col-sm-3
+            img.img-fluid(src='../public/img/album-04.jpg', alt='')
+          .col-sm-3
+            img.img-fluid(src='../public/img/album-05.jpg', alt='')
+          .col-sm-3
+            img.img-fluid(src='../public/img/album-06.jpg', alt='')
+        p See something you like?
+        .btn.btn-custom.hvr-grow Visit our store
+    section.shows
+      .container.text-center
+        h2 Upcomming Shows
+        .row.justify-content-center.no-gutters
+          .col-6.col-lg-3
+            .card.bg-dark.text-white
+              img.card-img(src='../public/img/show-image-01.jpg', alt='Card image')
+              .card-img-overlay
+                h4.card-title The music Festival
+                p.card-text  Montreal,QC CA
+                p.card-text  17/06/2017
+                p.card-text
+                  small  starting at
+                  |  19$
+                .btn.btn-custom.btn-card.hvr-grow BUY TICKETS
+          .col-6.col-lg-3
+            .card.bg-dark.text-white
+              img.card-img(src='../public/img/show-image-02.jpg', alt='Card image')
+              .card-img-overlay
+                h4.card-title The music Festival
+                p.card-text  Montreal,QC CA
+                p.card-text  17/06/2017
+                p.card-text
+                  small  starting at
+                  |  19$
+                .btn.btn-custom.btn-card.hvr-grow BUY TICKETS
+          .col-6.col-lg-3
+            .card.bg-dark.text-white
+              img.card-img(src='../public/img/show-image-03.jpg', alt='Card image')
+              .card-img-overlay
+                h4.card-title The music Festival
+                p.card-text  Montreal,QC CA
+                p.card-text  17/06/2017
+                p.card-text
+                  small  starting at
+                  |  19$
+                .btn.btn-custom.btn-card.hvr-grow BUY TICKETS
+          .col-6.col-lg-3
+            .card.bg-dark.text-white
+              img.card-img(src='../public/img/show-image-04.jpg', alt='Card image')
+              .card-img-overlay
+                h4.card-title The music Festival
+                p.card-text  Montreal,QC CA
+                p.card-text  17/06/2017
+                p.card-text
+                  small  starting at
+                  |  19$
+                .btn.btn-custom.btn-card.hvr-grow BUY TICKETS
+    footer
+      .container
+        .row
+          div
+            p 2017 the Band by Tsoloff
+          div
+            ul.list-inline
+              li.list-inline-item
+                a.twitter(href='http://twitter.com ')
+              li.list-inline-item
+                a.google(href='http://instagram.com')
+              li.list-inline-item
+                a.youtube(href='http://youtube.com')
+              li.list-inline-item
+                a.facebook(href='http://facebook.com')
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js', integrity='sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js', integrity='sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1', crossorigin='anonymous')

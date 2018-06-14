@@ -47,16 +47,50 @@ function viewAll (req, res) {
   })
 }
 
-function viewAddMeme (req, res) {
+let fieldChecker = obj => {
+  for (let prop in obj) {
+    if (obj[prop] === '') {
+      return true
+    }
+  }
+}
+
+let defaultResponse = (respString, res) => {
+  res.writeHead(200, {
+    'Content-Type': 'text/html'
+  })
+  res.end(respString)
+}
+
+function viewAddMeme (req, res, status) {
   fs.readFile('./views/addMeme.html', (err, data) => {
     if (err) {
       console.log(err)
       return
     }
-    res.writeHead(200, {
-      'Content-Type': 'text/html'
-    })
-    res.end(data)
+
+    if (status === 'err') {
+      data = data
+        .toString()
+        .replace(
+          '<div id="replaceMe">{{replaceMe}}</div>',
+          '<div id="errBox"><h2 id="errMsg">Please fill all fields</h2></div>'
+        )
+    }
+    if (status === 'suc') {
+      data = data
+        .toString()
+        .replace(
+          '<div id="replaceMe">{{replaceMe}}</div>',
+          '<div id="succssesBox"><h2 id="succssesMsg">Movie Added</h2></div>'
+        )
+    }
+    defaultResponse(
+      data
+        .toString()
+        .replace('<div id="replaceMe">{{replaceMe2}}</div>', data),
+      res
+    )
   })
 }
 
@@ -85,22 +119,26 @@ function addMeme (req, res) {
       }
       console.log(fields)
       console.log(files)
-      let Meme = {
-        id: randomString,
-        title: fields.memeTitle, // Example of memeSrc: './public/memeStorage/1/{random string}.jpg'
-        memeSrc: filePath,
-        description: fields.memeDescription,
-        privacy: fields.status,
-        dateStamp: Date.now()
-      }
-      db.add(Meme)
-      db.save().then(() => {
-        console.log('Meme saved')
-        res.writeHead(302, {
-          location: '/viewAllMemes'
+      if (fieldChecker(fields) || files.meme.size === 0) {
+        viewAddMeme(req, res, 'err')
+      } else {
+        let Meme = {
+          id: randomString,
+          title: fields.memeTitle, // Example of memeSrc: './public/memeStorage/1/{random string}.jpg'
+          memeSrc: filePath,
+          description: fields.memeDescription,
+          privacy: fields.status,
+          dateStamp: Date.now()
+        }
+        db.add(Meme)
+        db.save().then(() => {
+          console.log('Meme saved')
+          res.writeHead(302, {
+            location: '/viewAllMemes'
+          })
+          res.end()
         })
-        res.end()
-      })
+      }
     })
   })
 }
@@ -115,13 +153,15 @@ function getDetails (req, res) {
     let targetMemeId = req.pathquery.id
     // we have the id, now we need to pull the meme with the given id and populate the details.html with it
     let memes = db.getDb()
-    let targetedMeme
-    for (const meme of memes) {
-      if (meme.id === targetMemeId) {
-        targetedMeme = meme
-        break
-      }
-    }
+    let targetedMeme = memes.find(target => {
+      return target.id === targetMemeId
+    })
+    // for (const meme of memes) {
+    //   if (meme.id === targetMemeId) {
+    //     targetedMeme = meme
+    //     break
+    //   }
+    // }
     let memeHtml = singleMemeTemplate(targetedMeme)
 
     data = data.toString().replace('<div id="replaceMe">{{replaceMe}}</div>', memeHtml)

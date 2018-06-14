@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{> head}}
+
+<body>
+    {{> navigation}}
+    <div class="content">
+        <img src="{{this.memePath}}" alt=""/>
+        <h3>Title:  {{this.memeTitle}}</h3>
+        <p> {{this.memeDescription}}</p>
+        <button><a href="{{this.memePath}}" download="{{this.memeTitle}}.jpg" >Download Meme</a></button>
+        {{!-- DOWNLOAD JUST WORKS HERE LIKE THAT --}}
+    </div>
+</body>
+
+</html>

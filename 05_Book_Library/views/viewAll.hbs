@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{> head}}
+
+<body>
+
+    <header>
+        <div class="inner">
+            {{> navigation}}
+        </div>
+    </header>
+
+    <h1>Here are your books</h1>
+    <div class="container">
+        {{#each books}}
+            {{> book}}
+        {{else}}
+            <p style="font-style:italic">(no books in database)</p>
+        {{/each}}
+    </div>
+</body>
+
+</html>

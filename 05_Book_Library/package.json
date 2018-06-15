@@ -1,0 +1,21 @@
+{
+  "name": "05_book_library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-fileupload": "^0.4.0",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.11",
+    "mongoose": "^5.1.5",
+    "standard": "^11.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "KHB",
+  "license": "MIT"
+}

@@ -1,0 +1,9 @@
+<h1>Cars</h1>
+<div class="cars-container">
+    {{#each allRentedCars}}
+        {{> car}}
+    {{else}}
+    <div><p style="font-style:italic">(you have not rented any cars)</p></div>
+    {{/each}}
+        
+</div>

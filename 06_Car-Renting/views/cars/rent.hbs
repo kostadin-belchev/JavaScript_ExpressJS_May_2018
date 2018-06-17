@@ -1,0 +1,34 @@
+<h1>Rent the selected car</h1>
+<div class="car-container">
+    <section>
+            <img src="{{targetCar.imageUrl}}"
+                alt='car-image' />
+    </section>
+    <section class="info">
+        <strong>{{targetCar.make}}</strong> {{targetCar.model}}
+        <span class="rented">rented:
+            <strong>{{targetCar.timesRented}} </strong>time/s
+        </span>
+    </section>
+</div>
+<form method="post" action="/cars/rent?id={{targetCar.id}}">
+    {{#if targetCar.isRented}}
+    <div>
+        <section class="info">
+            RENTED OUT
+        </section>
+    </div>
+    {{else}}
+    <div>
+    <input name="daysToRent" placeholder="number of days you want to rent" required/>
+            <section class="info">
+                AVAILABLE FOR RENT
+            </section>
+            {{targetCar.numberOfCars}} cars left
+        </div>
+    <input id="submit" type="submit" value="RENT" />
+    {{/if}}
+</form>
+{{#if isAdmin}}
+    <a href="/cars/edit?id={{targetCar.id}}">EDIT</a>
+{{/if}}

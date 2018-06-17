@@ -56,9 +56,3 @@ typings/
 
 # dotenv environment variables file
 .env
-
-# Personal
-*.pptx
-package-lock.json
-*/node_modules/
-*.dat

@@ -1,0 +1,17 @@
+<h1>Create a car</h1>
+<form method="post" action="/cars/create">
+    <input name="make" placeholder="enter make" />
+    <input name="model" placeholder="enter model" />
+    <input name="imageUrl" placeholder="enter image url" />
+    <input name="color" , placeholder="enter color (optional)" />
+    <input id="submit" type="submit" value="CREATE" />
+</form>
+{{#if status}}
+<div id="succssesBox">
+    <h2 id="succssesMsg">Car Added</h2>
+</div>
+{{else}}
+<div id="errBox">
+    <h2 id="errMsg">Please enter make, model and image URL</h2>
+</div>
+{{/if}}

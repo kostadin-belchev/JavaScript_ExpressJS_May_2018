@@ -1,0 +1,9 @@
+<h1>Cars</h1>
+<div class="cars-container">
+    {{#each availableCars}}
+        {{> car}}
+    {{else}}
+    <div><p style="font-style:italic">(no cars for rent at this time, please check back later)</p></div>
+    {{/each}}
+        
+</div>

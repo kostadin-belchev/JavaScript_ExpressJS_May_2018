@@ -17,45 +17,45 @@ module.exports = {
       .where('model').equals(formData.model)
       .where('color').equals(formData.color)
       .then((existingCar) => {
-      if (existingCar) {
-        existingCar.numberOfCars++
-        existingCar.isRented = false
-        existingCar.save().then(() => {
+        if (existingCar) {
+          existingCar.numberOfCars++
+          existingCar.isRented = false
+          existingCar.save().then(() => {
             res.render('cars/create', {status: true})
-        })
-      } else {
-        Car.create({
-        make: formData.make,
-        model: formData.model,
-        imageUrl: formData.imageUrl,
-        color: formData.color
-        }).then((newCarAdded) => {
-        // console.log('new car added '+ newCarAdded)
-        res.render('cars/create', {status: true})
-        })
-      }
-    })
+          })
+        } else {
+          Car.create({
+            make: formData.make,
+            model: formData.model,
+            imageUrl: formData.imageUrl,
+            color: formData.color
+          }).then((newCarAdded) => {
+            // console.log('new car added '+ newCarAdded)
+            res.render('cars/create', {status: true})
+          })
+        }
+      })
   },
   seeAllGet: (req, res) => {
     Car.find({}).where('numberOfCars').gt(0)
-    //.where('isRented').equals(false)
-    .then((availableCars) => {
-      res.render('cars/all', {availableCars})
-    })
+    // .where('isRented').equals(false)
+      .then((availableCars) => {
+        res.render('cars/all', {availableCars})
+      })
   },
   rentGet: (req, res) => {
     let targetCarId = qs.parse(url.parse(req.url).query).id
     // console.log(targetCarId)
     Car.findById(targetCarId).then((targetCar) => {
-        let isAdmin = false
-        if (req.user.username === 'Admin') {
-          isAdmin = true
-        }
-        // target car is already an object so no need to pass it within {}
-        res.render('cars/rent', {
-          targetCar,
-          isAdmin
-        })
+      let isAdmin = false
+      if (req.user.username === 'Admin') {
+        isAdmin = true
+      }
+      // target car is already an object so no need to pass it within {}
+      res.render('cars/rent', {
+        targetCar,
+        isAdmin
+      })
     })
   },
   rentPost: (req, res) => {

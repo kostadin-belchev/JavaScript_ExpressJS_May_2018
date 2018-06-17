@@ -1,0 +1,19 @@
+<div class="spacer">
+    <h2>{{articleTitle}}
+        <div class="controls">
+            {{#if isAuthenticated}}
+                {{#if articleIsLocked}}
+                    {{#if isAdmin}}
+                        <a href="/articles/edit?id={{mostRecentEdit.articleId}}">[edit]</a>
+                    {{/if}}
+                {{else}}
+                    <a href="/articles/edit?id={{mostRecentEdit.articleId}}">[edit]</a>
+                {{/if}}
+            {{/if}}
+            <a href="/articles/history?id={{currEdit.articleId}}">[history]</a>
+        </div>
+    </h2>
+    <article>
+        <p>{{currEdit.content}}</p>
+    </article>
+</div>

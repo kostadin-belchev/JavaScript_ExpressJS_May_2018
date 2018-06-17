@@ -1,0 +1,14 @@
+<section>
+    <h2>{{articleTitle}}</h2>
+    <div class="spacer">
+        <h3>Edit history</h3>
+        <ul>
+            {{#each orderedEditIdsByDate}}
+            <li>
+                <a href="/getHistory?id={{this.id}}">{{this.creationDate}}</a> by
+                <span class="author">{{this.author}}</span>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</section>

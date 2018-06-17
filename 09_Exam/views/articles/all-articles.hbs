@@ -1,0 +1,14 @@
+<section>
+    <h2>All articles</h2>
+    <div class="spacer">
+        <ul>
+            {{#each allArticles}}
+            <li>
+                <a href="/getDetails?id={{this.id}}">{{this.title}}</a>
+            </li>
+            {{else}}
+                <p style="font-style:italic">(no articles published)</p>
+            {{/each}}
+        </ul>
+    </div>
+</section>

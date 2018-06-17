@@ -1,0 +1,21 @@
+<section>
+    <h2>Create new article</h2>
+    <div class="spacer">
+        <form action="/create-article" method="POST">
+            <label>Article title</label>
+            <input type="text" class="title" name="title">
+            <label>Content</label>
+            <textarea name="content"></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</section>
+{{#if status}}
+<div id="succssesBox">
+    <h2 id="succssesMsg">Article Added</h2>
+</div>
+{{else}}
+<div id="errBox">
+    <h2 id="errMsg">Please enter title and content</h2>
+</div>
+{{/if}}

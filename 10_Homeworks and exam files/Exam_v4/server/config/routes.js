@@ -3,7 +3,7 @@ const auth = require('./auth')
 
 module.exports = (app) => {
   app.get('/', controllers.home.index)
-  app.get('/about', auth.isAuthenticated, controllers.home.about)
+  app.get('/latest-article', controllers.home.lastArticle)
 
   app.get('/users/register', controllers.users.registerGet)
   app.post('/users/register', controllers.users.registerPost)
@@ -27,16 +27,20 @@ module.exports = (app) => {
 
   // lock unlock, only for Admins
   app.get('/acrticles/lock', auth.isInRole('Admin'), controllers.articles.lock)
+  app.get('/acrticles/unlock', auth.isInRole('Admin'), controllers.articles.unlock)
 
   // history, auth users only
   app.get('/articles/history', auth.isAuthenticated, controllers.articles.historyGet)
 
-  //
+  // history details, for auth users only
   app.get('/getHistory', auth.isAuthenticated, controllers.articles.historyGetDetails)
+
+  // search
+  app.post('/search', controllers.articles.search)
 
   app.all('*', (req, res) => {
     res.status(404)
-    res.send('404 Not Found!')
+    res.send('404 Not Found! This web page does not exist in our website. Please go back. :)')
     res.end()
   })
 }

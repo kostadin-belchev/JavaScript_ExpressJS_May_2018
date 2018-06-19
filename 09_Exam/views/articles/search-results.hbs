@@ -1,0 +1,14 @@
+<section>
+    <h2>Search results for: "{{searchPattern}}"</h2>
+    <div class="spacer">
+        <ul>
+            {{#each foundArticles}}
+            <li>
+                <a href="/getDetails?id={{id}}">{{title}}</a>
+            </li>
+            {{else}}
+                <p>(no article titles contain your search pattern)</p>
+            {{/each}}
+        </ul>
+    </div>
+</section>

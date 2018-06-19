@@ -151,7 +151,7 @@ module.exports = {
       }
       articleToUnlock.isLocked = false
       articleToUnlock.save().then((article) => {
-        res.redirect('all-articles')
+        res.redirect('/all-articles')
       })
     })
   },
@@ -164,7 +164,7 @@ module.exports = {
         // console.log('allEdits: ')
         // console.log(allEdits)
         let orderedEditIdsByDate = allEdits.sort((a, b) => {
-          return (b.creationDate.toString()).localeCompare(a.creationDate.toString())
+          return (b._id.toString()).localeCompare(a._id.toString())
         })
         // console.log('orderedEditIdsByDate: ')
         // console.log(orderedEditIdsByDate)
@@ -174,36 +174,49 @@ module.exports = {
           isAuthenticated = true
         }
         res.render('articles/history', {
-            orderedEditIdsByDate,
-            articleTitle,
-            isAuthenticated
-          }
-        )
+          orderedEditIdsByDate,
+          articleTitle,
+          isAuthenticated
+        })
       })
     })
   },
   historyGetDetails: (req, res) => {
     let targetEditId = qs.parse(url.parse(req.url).query).id
     Edit.findById(targetEditId).then((currEdit) => {
-        Article.findById(currEdit.articleId).then((currArticle) => {
-            let articleIsLocked = currEdit.isLocked
-            let articleTitle = currArticle.title
-            let isAuthenticated = false
-            let isAdmin = false
-            if (req.user) {
-              isAuthenticated = true
-              if (req.user.username === 'Admin') {
-                isAdmin = true
-              }
+      Article.findById(currEdit.articleId).then((currArticle) => {
+        let articleIsLocked = currArticle.isLocked
+        let articleTitle = currArticle.title
+        let isAuthenticated = false
+        let isAdmin = false
+        if (req.user) {
+            isAuthenticated = true
+            if (req.user.username === 'Admin') {
+            isAdmin = true
             }
-            res.render('articles/edit-details', {
-              currEdit,
-              articleTitle,
-              isAuthenticated,
-              isAdmin,
-              articleIsLocked
-            })
+        }
+        res.render('articles/edit-details', {
+            currEdit,
+            articleTitle,
+            isAuthenticated,
+            isAdmin,
+            articleIsLocked
         })
       })
+    })
+  },
+  search: (req, res) => {
+    let formData = req.body
+    let regex = new RegExp(`${formData.searchPattern}`, 'i')
+    Article.find({}).where('title', regex).then((foundArticles) => {
+      // console.log(foundArticles)
+      if (formData.searchPattern === '') {
+        foundArticles.length = 0
+      }
+      res.render('articles/search-results', {
+        searchPattern: formData.searchPattern,
+        foundArticles
+      })
+    })
   }
 }

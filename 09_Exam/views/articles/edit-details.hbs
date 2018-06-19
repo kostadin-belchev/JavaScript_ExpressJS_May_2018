@@ -4,10 +4,10 @@
             {{#if isAuthenticated}}
                 {{#if articleIsLocked}}
                     {{#if isAdmin}}
-                        <a href="/articles/edit?id={{mostRecentEdit.articleId}}">[edit]</a>
+                        <a href="/articles/edit?id={{currEdit.articleId}}">[edit]</a>
                     {{/if}}
                 {{else}}
-                    <a href="/articles/edit?id={{mostRecentEdit.articleId}}">[edit]</a>
+                    <a href="/articles/edit?id={{currEdit.articleId}}">[edit]</a>
                 {{/if}}
             {{/if}}
             <a href="/articles/history?id={{currEdit.articleId}}">[history]</a>

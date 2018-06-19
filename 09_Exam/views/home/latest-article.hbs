@@ -1,0 +1,15 @@
+<div class="spacer">
+    {{#if latestArticle}}
+    <h2>{{latestArticle.title}}
+        <div class="controls">
+            <a href="/articles/edit?id={{latestArticle.id}}">[edit]</a>
+            <a href="/articles/history?id={{latestArticle.id}}">[history]</a>
+        </div>
+    </h2>
+    <article>
+        {{edit.content}}
+    </article>
+    {{else}}
+        <p style="font-style:italic">(no articles published)</p>
+    {{/if}}
+</div>
